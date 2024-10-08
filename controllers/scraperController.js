@@ -56,7 +56,7 @@ const scrapeHandler = async (req, res) => {
 
 
   } catch (error) {
-    res.status(500).json({ error: "Failed to scrape" });
+    res.status(500).json({ error: "Failed to scrape" ,error});
   }
 };
 
