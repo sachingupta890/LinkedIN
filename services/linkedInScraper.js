@@ -13,7 +13,7 @@ const scrapeLinkedIn = async (url) => {
   console.log("check chrome", options)
   let driver = await new Builder()
     .forBrowser("chrome")
-    .setChromeOptions(options)
+
     .build();
   
   console.log("Dtiver .....",driver)
