@@ -11,12 +11,17 @@ const scrapeLinkedIn = async (url) => {
   const leads = [];
   const options = getChromeOptions(PROXY);
 
-   const service = new chrome.ServiceBuilder(
-     `C:\Users\Sachin\Downloads\Linkedin updated\Linkedin updated\node_modules\.bin`
+  try {
+     const service = new chrome.ServiceBuilder(
+     `C:\Users\Sachin\Downloads\Linkedin updated\Linkedin updated\node_modules\.bin\chromedriver`
    )
      .loggingTo("chromedriver.log", "ALL")
      .build();
-   service.start();
+    service.start();
+    console.log("service is ", service);
+  } catch (error) {
+    console.log("service error ", error);
+}
   console.log("check chrome", options)
     try {
       const driver = await new Builder()
