@@ -15,6 +15,8 @@ const scrapeLinkedIn = async (url) => {
     .forBrowser("chrome")
     .setChromeOptions(options)
     .build();
+  
+  console.log("Dtiver .....",driver)
   try {
     const email = process.env.LINKEDIN_EMAIL;
     const password = process.env.LINKEDIN_PASSWORD;

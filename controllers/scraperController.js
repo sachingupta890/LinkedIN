@@ -30,6 +30,9 @@ setInterval(() => {
 const scrapeHandler = async (req, res) => {
   const { url } = req.body;
   const ipAddress = req.ip;
+
+  console.log("url is ", url);
+  console.log("ipAddress is ", ipAddress);
   
   if (!url) {
     return res.status(400).send("URL is required.");
