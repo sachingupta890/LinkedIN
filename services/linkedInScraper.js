@@ -13,9 +13,9 @@ const scrapeLinkedIn = async (url) => {
 
   try {
      const service = new chrome.ServiceBuilder(
-     `C:\Users\Sachin\Downloads\Linkedin updated\Linkedin updated\node_modules\.bin\chromedriver`
+     `C:\\Users\\Sachin\\Downloads\\Linkedin updated\\Linkedin updated\\node_modules\\.bin\/chromedriver`
    )
-     .loggingTo("chromedriver.log", "ALL")
+     .loggingTo("C:/Users/Sachin/Downloads/Linkedin updated/Linkedin updated/chromedriver.log", "ALL")
      .build();
     service.start();
     console.log("service is ", service);
