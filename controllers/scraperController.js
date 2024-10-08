@@ -50,6 +50,7 @@ const scrapeHandler = async (req, res) => {
     
     ipRequestCounts[ipAddress]++;
     saveIPRequestCounts(ipRequestCounts);
+    
     const leads = await scrapeLinkedIn(url);
     console.log("Scraping result:", leads);
     res.json({ message: "Scraping completed", leads });

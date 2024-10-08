@@ -10,13 +10,28 @@ const scrapeLinkedIn = async (url) => {
   console.log("start main",url)
   const leads = [];
   const options = getChromeOptions(PROXY);
-  console.log("check chrome", options)
-  let driver = await new Builder()
-    .forBrowser("chrome")
 
-    .build();
+   const service = new chrome.ServiceBuilder(
+     `C:\Users\Sachin\Downloads\Linkedin updated\Linkedin updated\node_modules\.bin`
+   )
+     .loggingTo("chromedriver.log", "ALL")
+     .build();
+   service.start();
+  console.log("check chrome", options)
+    try {
+      const driver = await new Builder()
+        .forBrowser("chrome")
+        .setChromeService(service)
+        .setChromeOptions(options)
+        .build();
+
+      console.log("Driver initialized successfully.");
+      console.log("Dtiver .....", driver);
+      return driver;
+    } catch (error) {
+      console.error("Error initializing driver:", error);
+    }
   
-  console.log("Dtiver .....",driver)
   try {
     const email = process.env.LINKEDIN_EMAIL;
     const password = process.env.LINKEDIN_PASSWORD;
