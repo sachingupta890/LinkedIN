@@ -8,24 +8,22 @@ const PROXY = require("../config/scraperProxy");
 const chrome = require("selenium-webdriver/chrome");
 
 const scrapeLinkedIn = async (url) => {
-  console.log("start main",url)
-  const leads = [];
-  const options = getChromeOptions(PROXY);
-  console.log("check chrome", options)
-    try {
-      const driver = await new Builder()
-        .forBrowser("chrome")
-        .setChromeOptions(options)
-        .build();
-
-      console.log("Driver initialized successfully.");
-      console.log("Dtiver .....", driver);
-      return driver;
-    } catch (error) {
-      console.error("Error initializing driver:", error);
-    }
+ 
+     
   
   try {
+     console.log("start main", url);
+     const leads = [];
+     const options = getChromeOptions(PROXY);
+     console.log("check chrome", options);
+
+     const driver = await new Builder()
+       .forBrowser("chrome")
+       .setChromeOptions(options)
+       .build();
+
+     console.log("Driver initialized successfully.");
+     console.log("Dtiver .....", driver);
     const email = process.env.LINKEDIN_EMAIL;
     const password = process.env.LINKEDIN_PASSWORD;
     console.log("Email check" , email);
