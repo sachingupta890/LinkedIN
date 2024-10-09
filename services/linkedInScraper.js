@@ -5,28 +5,16 @@ const getChromeOptions = require("../config/chromeOptions");
 const randomDelay = require("./randomDealy");
 const pauseForCaptcha = require("./captchaHandler");
 const PROXY = require("../config/scraperProxy");
+const chrome = require("selenium-webdriver/chrome");
 
 const scrapeLinkedIn = async (url) => {
   console.log("start main",url)
   const leads = [];
   const options = getChromeOptions(PROXY);
-
-  try {
-     const service = new chrome.ServiceBuilder(
-     `C:\\Users\\Sachin\\Downloads\\Linkedin updated\\Linkedin updated\\node_modules\\.bin\/chromedriver`
-   )
-     .loggingTo("C:/Users/Sachin/Downloads/Linkedin updated/Linkedin updated/chromedriver.log", "ALL")
-     .build();
-    service.start();
-    console.log("service is ", service);
-  } catch (error) {
-    console.log("service error ", error);
-}
   console.log("check chrome", options)
     try {
       const driver = await new Builder()
         .forBrowser("chrome")
-        .setChromeService(service)
         .setChromeOptions(options)
         .build();
 
